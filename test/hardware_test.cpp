@@ -53,10 +53,11 @@ static void pwmcb(PWMDriver *pwmp) {
 /*
  * PWM configuration.
  */
-static PWMConfig pwmcfg = { 18000000, /* 72MHz PWM clock frequency.   */
-4096, /* 12-bit PWM, 17KHz frequency. */
+static PWMConfig pwmcfg = { 36000000, /* 36MHz PWM clock.   */
+4096, /* 12-bit PWM, 9KHz frequency. */
 pwmcb, { { PWM_OUTPUT_ACTIVE_HIGH, NULL }, { PWM_OUTPUT_ACTIVE_HIGH, NULL }, { PWM_OUTPUT_DISABLED, NULL }, {
 	PWM_OUTPUT_DISABLED, NULL } }, 0, };
+
 
 /*
  * PWM subscriber node

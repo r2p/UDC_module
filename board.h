@@ -157,14 +157,8 @@
 #define GPIOF_PIN14                 14
 #define GPIOF_PIN15                 15
 
-#define LED1_GPIO	GPIOF
-#define LED2_GPIO	GPIOF
-#define LED3_GPIO	GPIOF
-#define LED4_GPIO	GPIOF
-#define LED1		1
-#define LED2		1
-#define LED3		1
-#define LED4		1
+#define LED_GPIO	GPIOF
+#define LED_PIN		1
 
 /*
  * I/O ports initial setup, this configuration is established soon after reset

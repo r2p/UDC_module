@@ -17,7 +17,10 @@ private:
 public:
 	PID(void);
 	void config(float k, float ti, float td, float ts, float min, float max);
+	void setLimits(float min, float max);
 	void set(float setpoint);
+	void setI(float setpoint);
+	float getError(float measure);
 	float update(float measure);
 };
 
@@ -48,10 +51,24 @@ void PID::config(float k, float ti, float td, float ts, float min = -FLT_MAX, fl
 	chSysUnlock();
 }
 
-
-void PID::set(float setpoint) {
+void PID::setLimits(float min, float max) {
 
 	chSysLock();
+	_min = min;
+	_max = max;
+	chSysUnlock();
+}
+
+
+void PID::set(float setpoint) {
+	chSysLock();
+
+	setI(setpoint);
+	chSysUnlock();
+}
+
+void PID::setI(float setpoint) {
+
 	// Reset integral and derivative components if sign has changed or setpoint is 0
 	if ((setpoint > 0) != (_setpoint  > 0) ) {
 		_i = 0;
@@ -59,9 +76,12 @@ void PID::set(float setpoint) {
 	}
 
 	_setpoint = setpoint;
-	chSysUnlock();
 }
 
+float PID::getError(float measure) {
+
+	return _setpoint - measure;
+}
 
 float PID::update(float measure) {
 	float error;
@@ -74,6 +94,9 @@ float PID::update(float measure) {
 	output = (_k * error);
 
 	/* integral term */
+	if (error * _i < 0) {
+		_i = 0;
+	}
 	_i += _ki * error;
 	output += _i;
 

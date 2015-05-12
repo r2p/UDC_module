@@ -10,7 +10,7 @@ int main(void) {
 	chSysInit();
 
 	for (;;) {
-		palTogglePad(GPIOC, GPIOC_LED);
+		palTogglePad(LED_GPIO, LED_PIN);
 		chThdSleepMilliseconds(500);
 	}
 
