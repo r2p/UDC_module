@@ -75,7 +75,7 @@ endif
 #
 
 R2P_ROOT ?= /opt/r2p
-CHIBIOS ?= $(R2P_ROOT)/core/ChibiOS_2.6.5
+CHIBIOS ?= $(R2P_ROOT)/core/ChibiOS
 RTCAN ?= $(R2P_ROOT)/core/RTCAN
 MW ?= $(R2P_ROOT)/core/Middleware
 
