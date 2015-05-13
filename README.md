@@ -1,9 +1,9 @@
 # uDC_module
 
 
-## Pinout
+### Pinout
 
-### Encoder connector
+#### Encoder connector
 1. RED - +5V
 2. BLACK - GND
 3. WHITE - Encoder channel A
@@ -11,7 +11,7 @@
 5. ORANGE - Encoder index
 6. GREEN - Analog input
 
-### Limit switch connector
+#### Limit switch connector
 1. RED - GND
 2. BLACK - Limit switch A
 3. WHITE - GND
